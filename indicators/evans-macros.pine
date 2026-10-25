@@ -1,0 +1,132 @@
+//@version=6
+indicator("Evans Macros", overlay=false, max_lines_count=500)
+
+//
+// Settings
+//
+
+timezoneInput = input.string( "America/New_York", "Timezone", group="Settings" )
+
+macroColor = input.color( color.rgb(0, 80, 255), "Macro Color", group="Settings" )
+
+macroWidth = input.int( 3, "Line Width", minval=1, maxval=5, group="Settings" )
+
+showBottomMacros = input.bool( true, "Show Bottom Macro Lines", group="Settings" )
+
+//
+// Vertical-Line Settings
+//
+
+showVerticalLines = input.bool( false, "Show Vertical Lines On Chart", group="Vertical Lines" )
+
+verticalColor = input.color( color.new(color.rgb(0, 80, 255), 0), "Vertical Line Color", group="Vertical Lines" )
+
+verticalWidth = input.int( 1, "Vertical Line Width", minval=1, maxval=5, group="Vertical Lines" )
+
+//
+// AM Session
+//
+
+show_0937 = input.bool( true, "09:37-09:55", group="AM Session" )
+
+show_1037 = input.bool( true, "10:37-10:55", group="AM Session" )
+show_1137 = input.bool( true, "11:37-11:55", group="AM Session" )
+
+//
+// PM Session
+//
+
+show_1237 = input.bool( true, "12:37-12:55", group="PM Session" )
+
+show_1337 = input.bool( true, "13:37-13:55", group="PM Session" )
+
+show_1437 = input.bool( true, "14:37-14:55", group="PM Session" )
+
+//
+// Asia Session
+//
+
+show_1837 = input.bool( true, "18:37-18:55", group="Asia Session" )
+
+show_1937 = input.bool( true, "19:37-19:55", group="Asia Session" )
+
+show_2037 = input.bool( true, "20:37-20:55", group="Asia Session" )
+
+//
+// Draw One Complete Macro
+//
+
+drawMacro( bool enabled, int sessionYear, int sessionMonth, int sessionDay, int sessionHour ) =>
+    int createdLines = 0
+
+    if enabled
+        int macroStartTime = timestamp( timezoneInput, sessionYear, sessionMonth, sessionDay, sessionHour, 37, 0 )
+
+        int macroEndTime = timestamp( timezoneInput, sessionYear, sessionMonth, sessionDay, sessionHour, 55, 0 )
+
+        // Bottom horizontal macro line
+        if showBottomMacros
+            line.new( x1=macroStartTime, y1=1.0, x2=macroEndTime, y2=1.0, xloc=xloc.bar_time, extend=extend.none, color=macroColor, style=line.style_solid, width=macroWidth )
+
+            createdLines += 1
+
+        // Vertical line at macro start
+        if showVerticalLines
+            line.new( x1=macroStartTime, y1=0.0, x2=macroStartTime, y2=1.0, xloc=xloc.bar_time, extend=extend.both, color=verticalColor, style=line.style_solid, width=verticalWidth, force_overlay=true )
+
+            // Vertical line at macro end
+            line.new( x1=macroEndTime, y1=0.0, x2=macroEndTime, y2=1.0, xloc=xloc.bar_time, extend=extend.both, color=verticalColor, style=line.style_solid, width=verticalWidth, force_overlay=true )
+
+            createdLines += 2
+
+    createdLines
+
+//
+// Calendar-Day Detection
+//
+
+// time_close helps the indicator correctly determine the
+// calendar date even on larger intraday timeframes.
+int calendarTime = time_close
+
+int sessionYear = year(calendarTime, timezoneInput)
+int sessionMonth = month(calendarTime, timezoneInput)
+int sessionDay = dayofmonth(calendarTime, timezoneInput)
+
+int calendarDayID = sessionYear * 10000 + sessionMonth * 100 + sessionDay
+
+bool newCalendarDay = na(calendarDayID[1]) or calendarDayID != calendarDayID[1]
+
+//
+// Create Every Macro for the Entire Day
+//
+
+if newCalendarDay
+    // AM macros
+    drawMacro( show_0937, sessionYear, sessionMonth, sessionDay, 9 )
+
+    drawMacro( show_1037, sessionYear, sessionMonth, sessionDay, 10 )
+
+    drawMacro( show_1137, sessionYear, sessionMonth, sessionDay, 11 )
+
+    // PM macros
+    drawMacro( show_1237, sessionYear, sessionMonth, sessionDay, 12 )
+
+    drawMacro( show_1337, sessionYear, sessionMonth, sessionDay, 13 )
+
+    drawMacro( show_1437, sessionYear, sessionMonth, sessionDay, 14 )
+
+    // Asia macros
+    drawMacro( show_1837, sessionYear, sessionMonth, sessionDay, 18 )
+
+    drawMacro( show_1937, sessionYear, sessionMonth, sessionDay, 19 )
+
+    drawMacro( show_2037, sessionYear, sessionMonth, sessionDay, 20 )
+
+//
+// Keep the Bottom Pane Scale Tight
+//
+
+plot( showBottomMacros ? 1.0 : na, display=display.none )
+
+plot( showBottomMacros ? 0.95 : na, display=display.none )

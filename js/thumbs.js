@@ -1,0 +1,26 @@
+/* Loom thumbnail URLs (resolved via Loom oEmbed). New Loom lessons are resolved automatically at runtime. */
+window.LOOM_THUMBS = {
+  "f33638f280204581a246222004000e49": "https://cdn.loom.com/sessions/thumbnails/f33638f280204581a246222004000e49-6424e6a610cc721f.jpg",
+  "dce2a8e1f5144910b1fb62060ef0515a": "https://cdn.loom.com/sessions/thumbnails/dce2a8e1f5144910b1fb62060ef0515a-0cb204d00dd93574.jpg",
+  "078a36580363459fb30f9a616d2e3e29": "https://cdn.loom.com/sessions/thumbnails/078a36580363459fb30f9a616d2e3e29-ffd1fe40a7cff1a3.jpg",
+  "6e5ec20af2214b68a6051888626aab43": "https://cdn.loom.com/sessions/thumbnails/6e5ec20af2214b68a6051888626aab43-c424a50b4d668214.jpg",
+  "1031a256d54341c1904dbd7aa543cc70": "https://cdn.loom.com/sessions/thumbnails/1031a256d54341c1904dbd7aa543cc70-500cd10b4a0d9b7c.jpg",
+  "f8ab5bd5d4084b70a39505b1dd8f89eb": "https://cdn.loom.com/sessions/thumbnails/f8ab5bd5d4084b70a39505b1dd8f89eb-19f645e47b024fef.jpg",
+  "cabb2d8e0eaa43c99aff205fed1efbf3": "https://cdn.loom.com/sessions/thumbnails/cabb2d8e0eaa43c99aff205fed1efbf3-5b74464b4486642a.jpg",
+  "9d2551bb6ae24a3ebc70d971eb768910": "https://cdn.loom.com/sessions/thumbnails/9d2551bb6ae24a3ebc70d971eb768910-46539e52e0fd3f00.jpg",
+  "ab9da01dadf84aa6ab0ce517d3878773": "https://cdn.loom.com/sessions/thumbnails/ab9da01dadf84aa6ab0ce517d3878773-fef4c1815d6216dc.jpg",
+  "7593f39b0d8a4afc936522056e266ccb": "https://cdn.loom.com/sessions/thumbnails/7593f39b0d8a4afc936522056e266ccb-a70d72bca3d48b58.jpg",
+  "35ca98ae2548483b828c1dec5bc0a8eb": "https://cdn.loom.com/sessions/thumbnails/35ca98ae2548483b828c1dec5bc0a8eb-c730ba1d5cbc42e7.jpg",
+  "2660104add634c6aa4fba9ed4aad619f": "https://cdn.loom.com/sessions/thumbnails/2660104add634c6aa4fba9ed4aad619f-73a7c534520b62ff.jpg",
+  "ba1781807d7342c3a2c5bb5e77c8e192": "https://cdn.loom.com/sessions/thumbnails/ba1781807d7342c3a2c5bb5e77c8e192-577ceb07dd4ac1dd.jpg",
+  "be7651439e8e4548afa84c1c593cc370": "https://cdn.loom.com/sessions/thumbnails/be7651439e8e4548afa84c1c593cc370-90e5c76cd52791db.jpg",
+  "f053f76192e2498886fb241ffaf9a31b": "https://cdn.loom.com/sessions/thumbnails/f053f76192e2498886fb241ffaf9a31b-6a7355295b437dc3.jpg",
+  "dca96a8cf9554c5e97467811c3c97828": "https://cdn.loom.com/sessions/thumbnails/dca96a8cf9554c5e97467811c3c97828-e61d6ec52e462e03.jpg",
+  "2f87eab6c6704d529cf5e7f25d182281": "https://cdn.loom.com/sessions/thumbnails/2f87eab6c6704d529cf5e7f25d182281-b1618cc25c742b6c.jpg",
+  "9612c334ad5446df877ac1993c276be1": "https://cdn.loom.com/sessions/thumbnails/9612c334ad5446df877ac1993c276be1-f29150f918b4507f.jpg",
+  "d8773a4a10a748cda1424d799c3588ba": "https://cdn.loom.com/sessions/thumbnails/d8773a4a10a748cda1424d799c3588ba-cd67c0375241c0ca.jpg",
+  "629541d338924ccc83789a99a9960faa": "https://cdn.loom.com/sessions/thumbnails/629541d338924ccc83789a99a9960faa-7d6b0947ccae9914.jpg",
+  "15dd15c7c1aa4fe683474f630fa59f81": "https://cdn.loom.com/sessions/thumbnails/15dd15c7c1aa4fe683474f630fa59f81-10491bb282c64bdb.jpg",
+  "cc1ae88fa17349fcb44d63077667a7c1": "https://cdn.loom.com/sessions/thumbnails/cc1ae88fa17349fcb44d63077667a7c1-0c840d3cdd644827.jpg",
+  "6bb58c80f26a4436adac5a928e3d2b2c": "https://cdn.loom.com/sessions/thumbnails/6bb58c80f26a4436adac5a928e3d2b2c-d7505e0fe375e46c.jpg"
+};
